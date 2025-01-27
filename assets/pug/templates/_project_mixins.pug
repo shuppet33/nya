@@ -1,0 +1,4 @@
+mixin input(data)
+	input(type=data.type ? type=data.type : type="text"  value=data.val ? value=data.val : value="" name=data.name id=data.id placeholder=data.place class=data.class class="global_input")
+	if data.label === true
+		label(for=data.id)!=data.txt
