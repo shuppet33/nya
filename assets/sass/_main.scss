@@ -23,7 +23,11 @@ h1 {
 	}
 }
 // End
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-size: 4.8rem;
 	font-family: $font_2;
 	font-weight: 500;
@@ -41,13 +45,14 @@ h2, h3, h4, h5, h6 {
 	}
 }
 
-
 button {
 	cursor: pointer;
 }
 
-.global_txt  {
-	p, ul, span {
+.global_txt {
+	p,
+	ul,
+	span {
 		&:not(:last-child) {
 			margin-bottom: 2rem;
 		}
@@ -60,20 +65,23 @@ button {
 	}
 }
 
-
-
 .wave {
-  background: rgba(255, 255, 255, .4);
-  border-radius: 50%;
-  transform: scale(0);
-  animation: wave .5s linear;
-  pointer-events: none;
-  position: absolute;
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 50%;
+	transform: scale(0);
+	animation: wave 0.5s linear;
+	pointer-events: none;
+	position: absolute;
 }
 
 @keyframes wave {
-  100% {
-   transform: scale(2);
-   opacity: 0;
-  }
+	100% {
+		transform: scale(2);
+		opacity: 0;
+	}
+}
+
+.base_in_sidebar {
+	@include flex-start;
+	gap: 4rem;
 }

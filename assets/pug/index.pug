@@ -2,8 +2,22 @@ extends _layout
 
 block vars
 	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'HOME'}
+	- 
+		var articles = [
+			{
+				title: ' Zorbu burbuļfutfols BUMPERBALL Latvijā. Vislabāka aktivitāte vecpuišu ballītēm un korporatīviem ',
+				img: '/i/articles.jpg',
+				txt: 'Zorbu futbols, burbuļfutbols, futbols pušļos, bamperu futbols Rīgā un visā Baltijā. Bumperball football ir vispopulārākā izklaide vecpuišu un vecmeitu ballītēm, komandas saliedēšanas pasākumiem, sporta spēlēm,',
+			}
+		]
 block content_block
-	section.hero#hero
-		.section_in
-			.hero_main
-				h1 Hello Maketodor
+	section.articles 
+		.section_in 
+			.articles_main 
+				.articles_title__link
+					a(href="#") 
+						h1 Mobilo atrakciju noma
+				ul.articles__list
+					each article in articles
+						li 
+							+article(article)

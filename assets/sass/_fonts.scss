@@ -1,14 +1,13 @@
 // Fonts include //
 
-
-@include font_face('Raleway-Regular', 'Raleway-Regular', $font_path, 400);
-
-@include font_face('Raleway-Medium', 'Raleway-Medium', $font_path, 500);
-
-@include font_face('Raleway-SemiBold', 'Raleway-SemiBold', $font_path, 600);
-
-@include font_face('Raleway-Bold', 'Raleway-Bold', $font_path, 700);
-
-
-
-// End fonts //
+@include font_face("AmaticSC-Bold", "AmaticSC-Bold", $font_path, 400);
+@include font_face("Montserrat-Light", "Montserrat-Light", $font_path, 300);
+@include font_face("Montserrat-Regular", "Montserrat-Regular", $font_path, 400);
+@include font_face("Montserrat-Medium", "Montserrat-Medium", $font_path, 500);
+@include font_face(
+	"Montserrat-SemiBold",
+	"Montserrat-SemiBold",
+	$font_path,
+	600
+);
+@include font_face("Montserrat-Bold", "Montserrat-Bold", $font_path, 700);

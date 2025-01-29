@@ -1,36 +1,36 @@
 // plugins for development
-var gulp = require('gulp'),
-	rimraf = require('rimraf'),
-	pug = require('gulp-pug'),
-	sass = require('gulp-dart-sass'),
-	gulpSequence = require('gulp-sequence'),
-	inlineimage = require('gulp-inline-image'),
-	prefix = require('gulp-autoprefixer'),
-	plumber = require('gulp-plumber'),
-	dirSync = require('gulp-directory-sync'),
-	browserSync = require('browser-sync').create(),
+var gulp = require("gulp"),
+	rimraf = require("rimraf"),
+	pug = require("gulp-pug"),
+	sass = require("gulp-dart-sass"),
+	gulpSequence = require("gulp-sequence"),
+	inlineimage = require("gulp-inline-image"),
+	prefix = require("gulp-autoprefixer"),
+	plumber = require("gulp-plumber"),
+	dirSync = require("gulp-directory-sync"),
+	browserSync = require("browser-sync").create(),
 	reload = browserSync.reload,
-	concat = require('gulp-concat'),
-	cssfont64 = require('gulp-cssfont64'),
-	sourcemaps = require('gulp-sourcemaps'),
-	postcss = require('gulp-postcss'),
-	assets = require('postcss-assets'),
-	notify = require('gulp-notify'),
-	webp = require('gulp-webp');
+	concat = require("gulp-concat"),
+	cssfont64 = require("gulp-cssfont64"),
+	sourcemaps = require("gulp-sourcemaps"),
+	postcss = require("gulp-postcss"),
+	assets = require("postcss-assets"),
+	notify = require("gulp-notify"),
+	webp = require("gulp-webp");
 
 let productionStatus;
 
 // plugins for build
-var purify = require('gulp-purifycss'),
-	terser = require('gulp-terser'),
-	image = require('gulp-image'),
-	pngquant = require('imagemin-pngquant'),
-	csso = require('gulp-csso');
+var purify = require("gulp-purifycss"),
+	terser = require("gulp-terser"),
+	image = require("gulp-image"),
+	pngquant = require("imagemin-pngquant"),
+	csso = require("gulp-csso");
 
 //plugins for testing
-var reporter = require('postcss-reporter'),
-	stylelint = require('stylelint'),
-	postcss_scss = require('postcss-scss');
+var reporter = require("postcss-reporter"),
+	stylelint = require("stylelint"),
+	postcss_scss = require("postcss-scss");
 
 // plugins for screenshots testing
 var img1 = [],
@@ -40,30 +40,30 @@ var img1 = [],
 
 var initialPageWidth = 1920;
 
-var pageList = ['index'];
+var pageList = ["index"];
 
-var assetsDir = 'assets/',
-	outputDir = 'dist/',
-	buildDir = 'build/';
+var assetsDir = "assets/",
+	outputDir = "dist/",
+	buildDir = "build/";
 
 //--------------------------------------webp
-gulp.task('imgWebp', function () {
+gulp.task("imgWebp", function () {
 	return gulp
-		.src(assetsDir + 'i/**/*')
+		.src(assetsDir + "i/**/*")
 		.pipe(
 			webp({
 				quality: 80,
 			})
 		)
-		.pipe(gulp.dest(outputDir + 'i/'))
+		.pipe(gulp.dest(outputDir + "i/"))
 		.pipe(browserSync.stream({ once: true }));
 });
 //--------------------------------------webp###
 
 //----------------------------------------------------Compiling
-gulp.task('pug', function () {
+gulp.task("pug", function () {
 	return gulp
-		.src([assetsDir + 'pug/*.pug', '!' + assetsDir + 'pug/_*.pug'])
+		.src([assetsDir + "pug/*.pug", "!" + assetsDir + "pug/_*.pug"])
 		.pipe(plumber())
 		.pipe(
 			pug({
@@ -74,112 +74,112 @@ gulp.task('pug', function () {
 			})
 		)
 		.on(
-			'error',
+			"error",
 			notify.onError({
-				message: '<%= error.message %>',
-				title: 'PUG Error!',
+				message: "<%= error.message %>",
+				title: "PUG Error!",
 			})
 		)
 		.pipe(gulp.dest(outputDir))
 		.pipe(browserSync.stream({ once: true }));
 });
 
-gulp.task('sass', function () {
+gulp.task("sass", function () {
 	return gulp
-		.src([assetsDir + 'sass/**/*.scss', '!' + assetsDir + 'sass/**/_*.scss'])
+		.src([assetsDir + "sass/**/*.scss", "!" + assetsDir + "sass/**/_*.scss"])
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(
 			sass().on(
-				'error',
+				"error",
 				notify.onError({
-					message: '<%= error.message %>',
-					title: 'Sass Error!',
+					message: "<%= error.message %>",
+					title: "Sass Error!",
 				})
 			)
 		)
 		.pipe(inlineimage())
-		.pipe(prefix('last 3 versions'))
+		.pipe(prefix("last 3 versions"))
 		.pipe(
 			postcss([
 				assets({
 					basePath: outputDir,
-					loadPaths: ['i/'],
+					loadPaths: ["i/"],
 				}),
 			])
 		)
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(outputDir + 'styles/'))
-		.pipe(browserSync.stream({ match: '**/*.css' }));
+		.pipe(gulp.dest(outputDir + "styles/"))
+		.pipe(browserSync.stream({ match: "**/*.css" }));
 });
 
-gulp.task('jsConcatLibs', function () {
+gulp.task("jsConcatLibs", function () {
 	return gulp
-		.src(assetsDir + 'js/libs/**/*.js')
-		.pipe(concat('libs.js', { newLine: ';' }))
-		.pipe(gulp.dest(outputDir + 'js/'))
+		.src(assetsDir + "js/libs/**/*.js")
+		.pipe(concat("libs.js", { newLine: ";" }))
+		.pipe(gulp.dest(outputDir + "js/"))
 		.pipe(browserSync.stream({ once: true }));
 });
 
-gulp.task('jsConcatComponents', function () {
+gulp.task("jsConcatComponents", function () {
 	return gulp
-		.src(assetsDir + 'js/components/**/*.js')
-		.pipe(concat('components.js', { newLine: ';' }))
-		.pipe(gulp.dest(outputDir + 'js/'))
+		.src(assetsDir + "js/components/**/*.js")
+		.pipe(concat("components.js", { newLine: ";" }))
+		.pipe(gulp.dest(outputDir + "js/"))
 		.pipe(browserSync.stream({ once: true }));
 });
 
-gulp.task('fontsConvert', function () {
+gulp.task("fontsConvert", function () {
 	return gulp
-		.src([assetsDir + 'fonts/*.woff', assetsDir + 'fonts/*.woff2'])
+		.src([assetsDir + "fonts/*.woff", assetsDir + "fonts/*.woff2"])
 		.pipe(cssfont64())
-		.pipe(gulp.dest(outputDir + 'styles/'))
+		.pipe(gulp.dest(outputDir + "styles/"))
 		.pipe(browserSync.stream({ once: true }));
 });
 
 //----------------------------------------------------Compiling###
 
 //-------------------------------------------------Synchronization
-gulp.task('imageSync', function () {
+gulp.task("imageSync", function () {
 	return gulp
-		.src(assetsDir + 'i/**/*')
+		.src(assetsDir + "i/**/*")
 		.pipe(plumber())
-		.pipe(gulp.dest(outputDir + 'i/'))
+		.pipe(gulp.dest(outputDir + "i/"))
 		.pipe(browserSync.stream({ once: true }));
 });
 
-gulp.task('fontsSync', function () {
+gulp.task("fontsSync", function () {
 	return gulp
-		.src(assetsDir + 'fonts/**/*')
+		.src(assetsDir + "fonts/**/*")
 		.pipe(plumber())
-		.pipe(gulp.dest(outputDir + 'fonts/'))
+		.pipe(gulp.dest(outputDir + "fonts/"))
 		.pipe(browserSync.stream({ once: true }));
 });
 
-gulp.task('jsSync', function () {
+gulp.task("jsSync", function () {
 	return gulp
-		.src(assetsDir + 'js/*.js')
+		.src(assetsDir + "js/*.js")
 		.pipe(plumber())
-		.pipe(gulp.dest(outputDir + 'js/'))
+		.pipe(gulp.dest(outputDir + "js/"))
 		.pipe(browserSync.stream({ once: true }));
 });
 //-------------------------------------------------Synchronization###
 
 //watching files and run tasks
-gulp.task('watch', function () {
-	gulp.watch(assetsDir + 'pug/**/*.pug', gulp.series('pug'));
-	gulp.watch(assetsDir + 'sass/**/*.scss', gulp.series('sass'));
-	gulp.watch(assetsDir + 'js/**/*.js', gulp.series('jsSync'));
-	gulp.watch(assetsDir + 'js/libs/**/*.js', gulp.series('jsConcatLibs'));
+gulp.task("watch", function () {
+	gulp.watch(assetsDir + "pug/**/*.pug", gulp.series("pug"));
+	gulp.watch(assetsDir + "sass/**/*.scss", gulp.series("sass"));
+	gulp.watch(assetsDir + "js/**/*.js", gulp.series("jsSync"));
+	gulp.watch(assetsDir + "js/libs/**/*.js", gulp.series("jsConcatLibs"));
 	gulp.watch(
-		assetsDir + 'js/components/**/*.js',
-		gulp.series('jsConcatComponents')
+		assetsDir + "js/components/**/*.js",
+		gulp.series("jsConcatComponents")
 	);
-	gulp.watch(assetsDir + 'i/**/*', gulp.series('imageSync'));
-	gulp.watch(assetsDir + 'i/**/*', gulp.series('imgWebp'));
+	gulp.watch(assetsDir + "i/**/*", gulp.series("imageSync"));
+	gulp.watch(assetsDir + "i/**/*", gulp.series("imgWebp"));
 	gulp.watch(
-		assetsDir + 'fonts/**/*',
-		gulp.series('fontsSync', 'fontsConvert')
+		assetsDir + "fonts/**/*",
+		gulp.series("fontsSync", "fontsConvert")
 	);
 });
 
@@ -195,24 +195,24 @@ var plugins = {
 	},
 };
 
-gulp.task('browser-sync', function () {
+gulp.task("browser-sync", function () {
 	return browserSync.init(plugins.browserSync.options);
 });
 
-gulp.task('bs-reload', function (cb) {
+gulp.task("bs-reload", function (cb) {
 	browserSync.reload();
 });
 
 //---------------------------------building final project folder
 //clean build folder
-gulp.task('cleanBuildDir', function (cb) {
+gulp.task("cleanBuildDir", function (cb) {
 	return rimraf(buildDir, cb);
 });
 
 //minify images
-gulp.task('imgBuild', function () {
+gulp.task("imgBuild", function () {
 	return gulp
-		.src([outputDir + 'i/**/*', '!' + outputDir + 'i/sprite/**/*'])
+		.src([outputDir + "i/**/*", "!" + outputDir + "i/sprite/**/*"])
 		.pipe(
 			image({
 				pngquant: true,
@@ -226,43 +226,43 @@ gulp.task('imgBuild', function () {
 				quiet: false, // defaults to false
 			})
 		)
-		.pipe(gulp.dest(buildDir + 'i/'));
+		.pipe(gulp.dest(buildDir + "i/"));
 });
 
 //copy sprite.svg
-gulp.task('copySprite', function () {
+gulp.task("copySprite", function () {
 	return gulp
-		.src(outputDir + 'i/sprite/sprite.svg')
+		.src(outputDir + "i/sprite/sprite.svg")
 		.pipe(plumber())
-		.pipe(gulp.dest(buildDir + 'i/sprite/'));
+		.pipe(gulp.dest(buildDir + "i/sprite/"));
 });
 
 //copy fonts
-gulp.task('fontsBuild', function () {
+gulp.task("fontsBuild", function () {
 	return gulp
-		.src(outputDir + 'fonts/**/*')
-		.pipe(gulp.dest(buildDir + 'fonts/'));
+		.src(outputDir + "fonts/**/*")
+		.pipe(gulp.dest(buildDir + "fonts/"));
 });
 
 //copy html
-gulp.task('htmlBuild', function () {
-	return gulp.src(outputDir + '**/*.html').pipe(gulp.dest(buildDir));
+gulp.task("htmlBuild", function () {
+	return gulp.src(outputDir + "**/*.html").pipe(gulp.dest(buildDir));
 });
 
 //copy and minify js
-gulp.task('jsBuild', function () {
+gulp.task("jsBuild", function () {
 	return gulp
-		.src(outputDir + 'js/**/*')
+		.src(outputDir + "js/**/*")
 		.pipe(terser())
-		.pipe(gulp.dest(buildDir + 'js/'));
+		.pipe(gulp.dest(buildDir + "js/"));
 });
 
 //copy, minify css
-gulp.task('cssBuild', function () {
+gulp.task("cssBuild", function () {
 	return gulp
-		.src(outputDir + 'styles/**/*')
+		.src(outputDir + "styles/**/*")
 		.pipe(csso())
-		.pipe(gulp.dest(buildDir + 'styles/'));
+		.pipe(gulp.dest(buildDir + "styles/"));
 });
 
 //// --------------------------------------------If you need iconfont
@@ -287,15 +287,15 @@ gulp.task('cssBuild', function () {
 // });
 
 // --------------------------------------------If you need svg sprite
-var svgSprite = require('gulp-svg-sprite'),
-	svgmin = require('gulp-svgmin'),
-	cheerio = require('gulp-cheerio'),
-	replace = require('gulp-replace');
+var svgSprite = require("gulp-svg-sprite"),
+	svgmin = require("gulp-svgmin"),
+	cheerio = require("gulp-cheerio"),
+	replace = require("gulp-replace");
 
-gulp.task('svgSpriteBuild', function () {
+gulp.task("svgSpriteBuild", function () {
 	return (
 		gulp
-			.src(assetsDir + 'i/icons/*.svg')
+			.src(assetsDir + "i/icons/*.svg")
 			// minify svg
 			.pipe(
 				svgmin({
@@ -308,25 +308,25 @@ gulp.task('svgSpriteBuild', function () {
 			.pipe(
 				cheerio({
 					run: function ($) {
-						$('[fill]').removeAttr('fill');
-						$('[stroke]').removeAttr('stroke');
-						$('[style]').removeAttr('style');
+						$("[fill]").removeAttr("fill");
+						$("[stroke]").removeAttr("stroke");
+						$("[style]").removeAttr("style");
 					},
 					parserOptions: { xmlMode: true },
 				})
 			)
 			// cheerio plugin create unnecessary string '&gt;', so replace it.
-			.pipe(replace('&gt;', '>'))
+			.pipe(replace("&gt;", ">"))
 			// build svg sprite
 			.pipe(
 				svgSprite({
 					mode: {
 						symbol: {
-							sprite: '../sprite.svg',
+							sprite: "../sprite.svg",
 							render: {
 								scss: {
-									dest: '../../../sass/_sprite.scss',
-									template: assetsDir + 'sass/templates/_sprite_template.scss',
+									dest: "../../../sass/_sprite.scss",
+									template: assetsDir + "sass/templates/_sprite_template.scss",
 								},
 							},
 							example: true,
@@ -334,15 +334,15 @@ gulp.task('svgSpriteBuild', function () {
 					},
 				})
 			)
-			.pipe(gulp.dest(assetsDir + 'i/sprite/'))
+			.pipe(gulp.dest(assetsDir + "i/sprite/"))
 	);
 });
 
-gulp.task('cssLint', function () {
+gulp.task("cssLint", function () {
 	return gulp
 		.src([
-			assetsDir + 'sass/**/*.scss',
-			'!' + assetsDir + 'sass/templates/*.scss',
+			assetsDir + "sass/**/*.scss",
+			"!" + assetsDir + "sass/templates/*.scss",
 		])
 		.pipe(
 			postcss([stylelint(), reporter({ clearMessages: true })], {
@@ -351,50 +351,50 @@ gulp.task('cssLint', function () {
 		);
 });
 
-gulp.task('set-dev-node-env', function(done) {
-	productionStatus = 'development';
+gulp.task("set-dev-node-env", function (done) {
+	productionStatus = "development";
 	done();
 });
 
-gulp.task('set-prod-node-env', function(done) {
-	productionStatus = 'production';
+gulp.task("set-prod-node-env", function (done) {
+	productionStatus = "production";
 	done();
 });
 
 let taskArray = {
 	development: gulp.series(
-		'set-dev-node-env',
+		"set-dev-node-env",
 		gulp.parallel(
-			'pug',
-			'sass',
-			'imgWebp',
-			'imageSync',
-			'fontsSync',
-			'fontsConvert',
-			'jsConcatLibs',
-			'jsConcatComponents',
-			'jsSync',
-			'watch',
-			'browser-sync'
+			"pug",
+			"sass",
+			"imgWebp",
+			"imageSync",
+			"fontsSync",
+			"fontsConvert",
+			"jsConcatLibs",
+			"jsConcatComponents",
+			"jsSync",
+			"watch",
+			"browser-sync"
 		)
 	),
 	production: gulp.series(
-		'cleanBuildDir',
-		'set-prod-node-env',
-		'pug',
+		"cleanBuildDir",
+		"set-prod-node-env",
+		"pug",
 		gulp.parallel(
-			'imgBuild',
-			'fontsBuild',
-			'htmlBuild',
-			'jsBuild',
-			'cssBuild',
-			'copySprite'
+			"imgBuild",
+			"fontsBuild",
+			"htmlBuild",
+			"jsBuild",
+			"cssBuild",
+			"copySprite"
 		)
 	),
 };
 
-gulp.task('default', taskArray['development']);
-gulp.task('build', taskArray['production']);
+gulp.task("default", taskArray["development"]);
+gulp.task("build", taskArray["production"]);
 
 //--------------------------------- testing
 
