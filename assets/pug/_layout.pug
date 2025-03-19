@@ -13,10 +13,7 @@ html(lang="en")
 		include interface/header
 		.wrapper(class= array.layout_mod)
 			.base(class= array.layout_mod)
-				.base_in_sidebar.section_in
-					.content
-						block content_block
-					include interface/sidebar
+					block content_block
 			include interface/footer
 		+scripts
 		block local_popup

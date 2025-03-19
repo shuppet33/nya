@@ -1,63 +1,90 @@
 header.header
-	.section_in 
-		.header_main
-			.header_logo 
-				img(src="/i/logo.png", alt="Logotype website")
-			nav.header_nav
-				ul.header_nav__list
-					li 
-						a(href="#") Atrakciju noma vecpuišu, kopropātīvajiem un pilsētas pasākumiem
-					li 
-						a(href="#") 
-							p Pasākumu organizēšana
-							ul.submenu 
-								li 
-									a(href="#") Idejas pilsētu un novadu svētkiem
-								li 
-									a(href="#") Zorba volejbols
-								li
-									a(href="#") Vecmeitu ballītes un dzimšanas dienas idejas. Ūdens zorbings
-								li
-									a(href="#") Zorbinga trenings darbiniekiem
+	.header__top
+		.section_in 
+			.header_top__main 
+				ul.header_socials 
 					li 
 						a(href="#")
-							p Idejas izklaidei
-							ul.submenu 
-								li
-									a(href="#") Idejas komandu saliedēšanas un sporta spēlēm
-								li
-									a(href="#") Idejas korporatīviem pasākumiem
-								li
-									a(href="#") Idejas vecpuišu un vecmeitu ballītēm
-								li
-									a(href="#") idejas, kā aizņemt bērnu pusaudzi. Basic Outdoor Izdzīvošanas kurss
-					li 
-						a(href="#") 
-							p Idejas Jūsu biznesam
-							ul.submenu 
-								li 
-									a(href="#") Reklāma uz atrakcijam 
-					li 
-						a(href="#") Personālais transfērs un atrakciju piegāde
-			.header_info 
-				ul.lang_list
+							+iconify({ icon: "ic:baseline-whatsapp" })
 					li 
 						a(href="#")
-							img(src="/i/svg/ru.png", alt="Русский")  
+							+iconify({ icon: "ic:baseline-telegram" })
+				ul.header_contacts 
 					li 
 						a(href="#")
-							img(src="/i/svg/lv.png", alt="Latviešu valoda")  
+							+iconify({ icon: "ic:baseline-phone" })
+							p +90 507 706 00 07 
 					li 
 						a(href="#")
-							img(src="/i/svg/us.png", alt="English")
-				.header_phone 
-					a(href="#") (+371)29535888
-				.header_email 
-					a(href="#") info@zorb.lv
-				ul.header_social__list 
-					li 
-						a(href="#")
-							img(src="/i/svg/fb.png", alt="")
-					li 
-						a(href="#")
-							img(src="/i/svg/yt.png", alt="")
+							+iconify({ icon: "fa:envelope" })
+							p info@citydeft.com
+	.header_body 
+		.section_in 
+			.header_body__main
+				.header_logo 
+					a(href="#")
+						img(src="", alt="")
+				.header_nav 
+					ul 
+						li
+							a(href="#")
+								p Недвижимость
+								ul 
+									li 
+										a(href="#") Эксклюзивные предложения
+									li 
+										a(href="#") Новостройка
+									li 
+										a(href="#") Вторичное жилье
+									li 
+										a(href="#") На берегу моря
+									li 
+										a(href="#") Для гражданства
+									li 
+										a(href="#") Для ВНЖ
+						li
+							a(href="#")
+								p Услуги
+								ul 
+									li 
+										a(href="#") Ознакомительный тур
+									li 
+										a(href="#") Онлайн подбор
+									li 
+										a(href="#") Продать недвижимость
+									li 
+										a(href="#") Послепродажный сервис
+									li 
+										a(href="#") Гражданство и ВНЖ
+						li
+							a(href="#")
+								p О Компании
+								ul 
+									li 
+										a(href="#") О нас
+									li 
+										a(href="#") Наша команда
+									li 
+										a(href="#") Вакансии
+						li
+							a(href="#")
+								p Отзывы
+						li
+							a(href="#")
+								p Полезное
+								ul 
+									li 
+										a(href="#") Новости 
+									li 
+										a(href="#") Процедура покупки 
+									li 
+										a(href="#") Гражданство и ВНЖ 
+									li 
+										a(href="#") Статьи
+						li 
+							a(href="#")
+								p Контакты  
+				.header_actions 
+					.header_callback Связаться
+					.header_like 
+						+iconify({ icon: "weui:like-filled" })

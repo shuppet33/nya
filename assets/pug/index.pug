@@ -2,22 +2,29 @@ extends _layout
 
 block vars
 	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'HOME'}
-	- 
-		var articles = [
-			{
-				title: ' Zorbu burbuļfutfols BUMPERBALL Latvijā. Vislabāka aktivitāte vecpuišu ballītēm un korporatīviem ',
-				img: '/i/articles.jpg',
-				txt: 'Zorbu futbols, burbuļfutbols, futbols pušļos, bamperu futbols Rīgā un visā Baltijā. Bumperball football ir vispopulārākā izklaide vecpuišu un vecmeitu ballītēm, komandas saliedēšanas pasākumiem, sporta spēlēm,',
-			}
-		]
+
 block content_block
-	section.articles 
+	section.hero 
 		.section_in 
-			.articles_main 
-				.articles_title__link
-					a(href="#") 
-						h1 Mobilo atrakciju noma
-				ul.articles__list
-					each article in articles
-						li 
-							+article(article)
+			.hero_main 
+				.hero_slider.swiper 
+					.swiper-wrapper 
+						.swiper-slide 
+							.hero_slide
+								a(href="#") 
+									picture
+										source(srcset="images/hero-desktop.jpg" media="(min-width: 768px)")
+										img(src="images/hero-mobile.jpg" alt="Hero Image")
+	section.home-filter 
+		.section_in 
+			include templates/filter
+	section.popular 
+		.section_in 
+			.popular_main
+				.section_head
+					h2.section-title Лучшие предложения
+					.section-link
+						a(href="#") Смотреть все
+				.popular__list 
+					-for(i = 0; i < 12; i++)
+						include templates/card

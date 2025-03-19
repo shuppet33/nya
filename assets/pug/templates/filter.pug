@@ -1,0 +1,35 @@
+.filter 
+	.row 
+		.row_item
+			.row_label Категория
+			+customSelect({
+				id: "category",
+				label: "Категория",
+				placeholder: "Выберите или введите",
+				options: ["Эксклюзивные предложения", "Новостройка", "На берегу моря", "Вторичное жильё", "Для гражданства", "Для ВНЖ"],
+				multiple: false,
+			})
+		.row_item 
+			.row_label Тип недвижимости
+			+customSelect({
+				id: "type",
+				label: "Категория",
+				placeholder: "Выберите или введите",
+				options: ["Все", "Квартира", "Дуплекс", "Вилла", "Новостройка", "Проект", "Земля", "Коммерческая"],
+				multiple: true,
+			})
+		.row_item 
+			.row_label Ценовой диапазон, €
+				.row_itemInput__price
+					input(type="number")
+				.row_itemInput__price
+					input(type="number")
+		.row_item 
+			.row_label Планировка
+			+customSelect({
+				id: "plan",
+				label: "Категория",
+				placeholder: "Выберите или введите",
+				options: ["Все", "Квартира", "Дуплекс", "Вилла", "Новостройка", "Проект", "Земля", "Коммерческая"],
+				multiple: true,
+			})

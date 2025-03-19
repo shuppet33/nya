@@ -15,8 +15,7 @@ var gulp = require("gulp"),
 	sourcemaps = require("gulp-sourcemaps"),
 	postcss = require("gulp-postcss"),
 	assets = require("postcss-assets"),
-	notify = require("gulp-notify"),
-	webp = require("gulp-webp");
+	notify = require("gulp-notify");
 
 let productionStatus;
 
@@ -47,17 +46,6 @@ var assetsDir = "assets/",
 	buildDir = "build/";
 
 //--------------------------------------webp
-gulp.task("imgWebp", function () {
-	return gulp
-		.src(assetsDir + "i/**/*")
-		.pipe(
-			webp({
-				quality: 80,
-			})
-		)
-		.pipe(gulp.dest(outputDir + "i/"))
-		.pipe(browserSync.stream({ once: true }));
-});
 //--------------------------------------webp###
 
 //----------------------------------------------------Compiling
@@ -176,7 +164,6 @@ gulp.task("watch", function () {
 		gulp.series("jsConcatComponents")
 	);
 	gulp.watch(assetsDir + "i/**/*", gulp.series("imageSync"));
-	gulp.watch(assetsDir + "i/**/*", gulp.series("imgWebp"));
 	gulp.watch(
 		assetsDir + "fonts/**/*",
 		gulp.series("fontsSync", "fontsConvert")
@@ -367,7 +354,6 @@ let taskArray = {
 		gulp.parallel(
 			"pug",
 			"sass",
-			"imgWebp",
 			"imageSync",
 			"fontsSync",
 			"fontsConvert",
