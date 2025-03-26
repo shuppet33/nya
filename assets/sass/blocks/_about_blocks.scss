@@ -10,6 +10,12 @@
     background-color: #D7D7D7;
 }
 
+.about_blocks_right {
+    @include bp($point_2) {
+        display: none;
+    }
+}
+
 .about_blocks_right__image {
     width: 50rem;
     height: 48rem;
@@ -19,6 +25,10 @@
     max-width: 62.7rem;
     margin-right: 5rem;
     padding: 6rem 0 4.3rem 0;
+
+    @include bp($point_2) {
+        margin-right: 0;
+    }
 }
 
 .about_blocks_title h3 {
@@ -26,6 +36,11 @@
     font-weight: 800;
     font-family: $font_5;
     color: $darker;
+
+    @include bp($point_2) {
+        font-size: 3.5rem;
+        line-height: 4rem;
+    }
 }
 
 .about_blocks_descr {
@@ -35,6 +50,10 @@
 .about_blocks_descr p {
     font-size: 1.6rem;
     color: #555555;
+
+    @include bp($point_2) {
+        font-size: 1.8rem;
+    }
 }
 
 .about_blocks_btn {
