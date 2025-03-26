@@ -18,3 +18,25 @@ mixin customSelect(data)
 		ul.custom-select-dropdown
 			each option in data.options
 				li.custom-select-option(data-value=option)!= option
+				
+mixin about_block(data)
+	section.about_blocks 
+		.section_in
+			.about_blocks_main
+				.about_blocks_left
+					.about_blocks_title
+						h3 Нужна помощь в&nbsp;подборе квартиры?
+					.about_blocks_descr
+						p Команда профессионалов&nbsp;&mdash; наши сотрудники обладают высокими компетенциями в&nbsp;области инвестиций в&nbsp;турецкую недвижимость, смогут ответить на&nbsp;любой вопрос
+					if data.btn === true
+						.about_blocks__button
+							a(href="") 
+								.about_blocks_btn
+									p Узнать больше
+									.about_blocks_btn_icon 
+										<svg data-v-5a61b564="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24" height="24" viewBox="0 0 16 16" style="color: currentcolor;" class="iconify iconify--bi"><path fill="currentColor" fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8L4.646 2.354a.5.5 0 0 1 0-.708"></path></svg>
+					else
+						include ../blocks/form
+				.about_blocks_right
+					.about_blocks_right__image
+						img(src="i/about_block/managers.png", alt="")
