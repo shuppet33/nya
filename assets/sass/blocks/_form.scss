@@ -1,0 +1,48 @@
+.global_form {
+    max-width: 32.7rem;
+    text-align: center;
+    margin-left: 3.9rem;
+}
+
+.global_form_main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.1rem;
+}
+
+.global_form__name input, .global_form__number input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.6rem;
+    background-color: #fff;
+    padding: 1.3rem 1.2rem;
+    border-radius: 10rem;
+    color: #030A1B;
+    font-size: 1.4rem;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 100%;
+    border: 0.1rem solid transparent;
+}
+
+.global_form__button button {
+    background-color: #f5e084;
+    cursor: pointer;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    border-radius: 10rem;
+    transition: all 0.3s ease;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    display: inline-flex;
+    position: relative;
+}
+
+.global_form__button p {
+    padding: 1.3rem 4.5rem;
+}
