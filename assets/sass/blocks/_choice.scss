@@ -33,14 +33,16 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.5rem;
 }
 
 .choice_title h4 {
     font-size: 2.2rem;
     font-weight: 700;
-    line-height: 4rem;
+    line-height: 2.3rem;
     font-family: $font_5;
     color: $darker;
+    text-align: start;
 }
 
 .choice_icon {
@@ -51,8 +53,10 @@
     display: flex;
     align-items: center;
     position: relative;
-    color: #FE753F;
+    background-color: #fe753f2c;
     margin-right: 1.2rem;
+    color: #FE753F;
+    border-radius: .7rem;
 }
 
 .choice_actions__list:not(:last-child) {
