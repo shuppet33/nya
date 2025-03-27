@@ -1,0 +1,48 @@
+.contacts_main {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.contacts_big {
+    text-align: center;
+}
+
+.contacts_big h4 {
+    text-align: center;
+    font-size: 4.4rem;
+    font-weight: 700;
+    line-height: 100%;
+    color: $darker;
+    font-family: $font_5;
+}
+
+.contacts_content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    grid-gap: 6rem;
+}
+
+.contacts__list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.contacts_title h4 {
+    font-size: 2.2rem;
+    color: #555555;
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    line-height: 1rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.contacts_subtitle p {
+    font-size: 1.8rem;
+    font-family: "Rubik", sans-serif;
+    display: block;
+    // max-width: 22rem;
+    line-height: 2rem;
+}

@@ -1,0 +1,48 @@
+extends _layout
+
+block vars
+    - array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'Отзывы'}
+
+block content_block
+    section_contacts
+        .section_in
+            .contacts_main 
+                .contacts_big 
+                    h4 Контакты
+                .contacts_content
+                    .contacts_left
+                        ul.contacts__list
+                            li.contacts__item
+                                .contacts_title
+                                    h4 Мы работаем:
+                                .contacts_subtitle
+                                    p Понедельник-пятница &mdash; <br> с&nbsp;09:00 до&nbsp;18:00 <br> суббота&nbsp;&mdash; с&nbsp;09:00 до&nbsp;15:30 <br> воскресенье&nbsp;&mdash; выходной
+                            li.contacts__item
+                                .contacts_title
+                                    h4 Телефон:
+                                .contacts_subtitle
+                                    p +90&nbsp;507&nbsp;706 00 07 <br> На&nbsp;связи 24/7
+                            li.contacts__item
+                                .contacts_title
+                                    h4 Электронная почта:
+                                .contacts_subtitle
+                                    p info@citydeft.com
+                            li.contacts__item
+                                .contacts_title
+                                    h4 Наш офис:
+                                .contacts_subtitle
+                                    p Saray Mah. Oral Cad. 25/B Öztürk 2 Apt. Alanya / Antalya
+                            li.contacts__item
+                                .contacts_title
+                                    h4 Мы в социальных сетях:
+                                .contacts_icons 
+                                    a(href="") 
+                                        img(src="", alt="")
+                                    a(href="") 
+                                        img(src="", alt="")
+                                    a(href="") 
+                                        img(src="", alt="")
+                    .contacts_right 
+                        .contacts_map
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d51283.21879440901!2d31.981881000000005!3d36.549262!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14dca3954b67a575%3A0x7bf2e9fe1bf2662b!2sDeft%20Group!5e0!3m2!1sru!2sru!4v1743063430175!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    +about_block({btn: false})
