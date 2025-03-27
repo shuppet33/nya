@@ -1,3 +1,7 @@
+.contacts {
+    padding: 6rem 0;
+}
+
 .contacts_main {
     display: flex;
     flex-direction: column;
@@ -32,17 +36,35 @@
 .contacts_title h4 {
     font-size: 2.2rem;
     color: #555555;
-    font-family: "Rubik", sans-serif;
+    font-family: $font_6;
     font-weight: 500;
-    line-height: 1rem;
+    line-height: 3rem;
     display: block;
     margin-bottom: 1rem;
 }
 
 .contacts_subtitle p {
     font-size: 1.8rem;
-    font-family: "Rubik", sans-serif;
+    font-family: $font_8;
     display: block;
     // max-width: 22rem;
-    line-height: 2rem;
+    line-height: 2.4rem;
+    font-weight: 400;
+    color: $darker;
+}
+
+.contacts_icons__list {
+    display: flex;
+    gap: 2rem;
+}
+
+.contacts_icons__item a {
+    width: 4rem;
+    height: 4rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: #dddddd;
+    border-radius: 0.5rem;
+    border-radius: 1rem;
 }
