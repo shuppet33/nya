@@ -45,6 +45,10 @@
 
 .about_blocks_descr {
     padding: 3rem 0 6rem 0;
+
+    @include bp($point_2) {
+        padding: 3rem 0 3rem 0;
+    }
 }
 
 .about_blocks_descr p {
