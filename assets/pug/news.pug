@@ -1,0 +1,18 @@
+extends _layout
+
+block vars
+    - array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'Новости'}
+
+block content_block
+    section.news
+        .section_in
+            .news_main
+                .news_big
+                    h4 Новости
+                .news_content
+                    ul.news_content__list
+                        li.news_content__item
+                            .news_image
+                                img(src="", alt="")
+                            .news_title
+                                h4 Сбербанк возобновил переводы в Турцию

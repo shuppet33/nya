@@ -43,6 +43,10 @@
     position: relative;
 }
 
+.global_form__button button:hover {
+    background-color: #f5d753;
+}
+
 .global_form__button p {
     padding: 1.3rem 4.5rem;
 }
