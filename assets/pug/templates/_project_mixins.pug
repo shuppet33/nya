@@ -41,4 +41,13 @@ mixin about_block(data)
 					.about_blocks_right__image
 						img(src="i/about_block/managers.png", alt="")
 
-mixin 
+mixin page_head(data) 
+	section.page_head
+		.section_in
+			.page_head_main
+				.page_head_main_content
+					h1=data.title
+					h2=data.subtitle
+					p=data.text
+				.page_head_main_image
+					img(src=data.image, alt="")
