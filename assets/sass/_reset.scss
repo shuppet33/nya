@@ -96,6 +96,7 @@ input[type="text"], textarea {
 input,
 textarea {
 	border-radius: 0;
+	border: none;
 	box-sizing: border-box;
 
 	&::-webkit-input-placeholder {

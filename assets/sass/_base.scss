@@ -17,7 +17,7 @@ body {
 	position: relative;
 	display: flex;
 
-	height: 100%;
+	height: auto;
 	font-size: $font_size_base;
 
 	color: $color_text_base;
@@ -59,6 +59,7 @@ a {
 	text-decoration: none;
 	color: $color_link_base;
 	transition: all .3s ease;
+	cursor: pointer;
 
 	&:hover,
 	&:focus {
@@ -67,18 +68,3 @@ a {
 
 }
 
-
-// Animation 
-
-@keyframes loopIcons {
-	0% {
-		transform: rotate();
-	} 
-	100% {
-		transform: rotate(25deg);
-	}
-}
-
-
-
-//------------------------------------------------------------base styles###

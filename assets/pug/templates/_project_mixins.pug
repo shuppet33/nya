@@ -11,11 +11,3 @@ mixin iconify(data)
 	.gl__icon 
 		span(class="iconify" data-icon=data.icon data-inline=data.inline ? data.inline : false data-width=data.width ? data.width : "2.4rem" data-height=data.height ? data.height : "2.4rem")
 
-mixin customSelect(data)
-	.custom-select(data-multiple=data.multiple)
-		label(for=data.id)!= data.label
-		input.custom-select-input(id=data.id type="text" readonly placeholder=data.placeholder value=data.multiple ? "Выбрано: 0" : "Выберите значение")
-		ul.custom-select-dropdown
-			each option in data.options
-				li.custom-select-option(data-value=option)!= option
-				

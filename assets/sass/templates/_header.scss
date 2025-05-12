@@ -2,11 +2,280 @@
 	// position: fixed;
 	top: 0;
 	left: 0;
-	height: $header;
 	width: 100%;
 	will-change: transform;
 	@include z-index(header);
-
-	// НЕ ЗАБЫТЬ УДАЛИТЬ
-	display: none;
 }
+
+// header-desk start
+
+.header-top {
+	background: $darkgrey;
+}
+
+.header-main {
+	@include flex-space;
+	padding: 3rem 0;
+
+	@include bp(1024px) {
+		display: none;
+	}
+}
+
+.connection {
+	@include flex-center;
+	gap: 2.5rem;
+}
+
+.connection__block-phone {
+	@include flex-center;
+	gap: 1rem;
+	background: $yellow;
+	padding: 1rem 2rem;
+	border-radius: 12rem;
+	&__icon {
+		width: 3rem;
+	}
+	&__text {
+		font-family: $font_1;
+		font-size: 2rem;
+	}
+}
+
+
+.icon-text-block {
+	@include flex-center;
+	gap: 1rem;
+
+	&__text {
+		color: $white;
+		font-family: $font_5;
+		font-size: 2rem;
+		a {
+			color: $white;
+		}
+	}
+}
+
+// header-desk end
+
+// header-mob start
+
+.header-main-mob {
+	@include flex-space;
+
+	padding: 1rem 0;
+	display: none;
+
+	@include bp(1024px) {
+		display: flex;
+	}
+
+	&__logo {
+		width: 7rem;
+	}
+}
+
+
+.connection-mob {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+
+	&__whatsapp {
+		width: 1.5rem;
+	}
+}
+
+.connection-mob__block-phone{
+	@include flex-center;
+	gap: 1rem;
+
+	&__icon{}
+
+	&__text{
+		font-family: $font_1;
+		color: $white;
+		font-size: 1.4rem;
+	}
+}
+
+
+.order-a-call {
+	color: $yellow!important;
+	font-family: $font_3;
+	text-decoration: underline;
+	font-size: 1.4rem;
+}
+
+// header-mob end
+
+
+// main-menu start
+
+.header-bottom {
+	background: $white;
+}
+
+.main-menu {
+	@include flex-space;
+
+	&__catalogs, 	&__search  {
+		background: $yellow;
+		padding: 2rem 3rem;
+		cursor: pointer;
+
+		text-transform: uppercase;
+		img {
+			width: 2.1rem;
+		}
+	}
+
+	&__search {
+
+		&__modal {
+
+			display: none;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+
+			z-index: 99;
+
+			background: rgba(0, 0, 0, 0.62);
+
+			.section_in {
+				max-width: 75rem;
+			}
+
+			.container{
+				position: absolute;
+				top: 6rem;
+
+				max-width: 75rem;
+				width: 100%;
+			}
+
+			.search__wrapper {
+				@include flex-space;
+				gap: 10rem;
+
+				background: $white;
+				padding: 2.1rem 2.2rem 2.1rem 3.7rem;
+
+				border-radius: 1rem;
+			}
+
+			.search__content {
+
+				margin-top: 2rem;
+				display: flex;
+				gap: 2rem;
+				.item {
+					height: 10rem;
+					width: 100%;
+					background: $white;
+					border-radius: 1rem;
+				}
+			}
+
+			.input-block {
+				font-family: $font_5;
+				font-size: 1.4rem;
+				color: $fontdarkgrey;
+				line-height: 3.5rem;
+				width: 100%;
+
+				display: flex;
+				align-items: center;
+				gap: 2rem;
+				&__label {
+					font-family: $font_3;
+					font-size: 2rem;
+					text-wrap: nowrap;
+				}
+				&__block {
+					position: relative;
+					width: 100%;
+					@include flex-space;
+					&__input {
+						padding: 1.2rem 3rem;
+						background-color: $lightgrey-2;
+						border-radius: 12rem;
+						width: 100%;
+						height: 5.8rem;
+						&::placeholder {
+							font-family: $font_5;
+							font-size: 1.4rem;
+							color: $fontdarkgrey;
+						}
+					}
+					&__img {
+						background: $lightgrey-2;
+						max-width: 1.7rem;
+						position: absolute;
+						top: 0;
+						right: 2.7rem;
+					}
+				}
+			}
+		}
+	}
+	&__list {
+		@include flex-space;
+		gap: 4rem;
+	}
+
+	&__item {
+
+	}
+
+	@include bp(1024px) {
+		display: none;
+	}
+}
+
+// main-menu mob
+
+.main-menu-mob {
+
+	display: none;
+
+	@include bp(1024px) {
+		display: flex;
+	}
+
+	justify-content: space-between;
+	align-items: center;
+
+	&__icon-text-block {
+		@include flex-center;
+		gap: 0.3rem;
+		padding: 1rem 0;
+
+		&__icon {
+			width: 1.5rem;
+		}
+
+		&__text {
+			color: $fontdarkgrey;
+			font-family: $font_3;
+			font-size: 1.6rem;
+
+			@include flex-center;
+			.bracket {
+				font-family: $font_4;
+			}
+
+			.count {
+				font-family: $font_1;
+			}
+		}
+	}
+
+}
+
+// main-menu end

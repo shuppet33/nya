@@ -1,0 +1,106 @@
+header.header
+	.header-top
+		.section_in
+			.header-top__main
+				.header-main
+					.header-main__logo
+						img(src="i/logo.svg" alt="logo")
+
+					.icon-text-block
+						.icon-text-block__icon
+							img(src="i/flag.svg" alt="flag-svg")
+						.icon-text-block__text Магадан
+
+					.connection
+						.connection__block-phone
+							.connection__block-phone__icon
+								img(src="i/phone.svg" alt="phone-svg")
+							.connection__block-phone__text
+								a(href='3') +7 423 202 55 02
+						.connection__whatsapp
+							a(href='#')
+								img(src="i/whatsapp.svg" alt="whatsapp-svg")
+
+					.icon-text-block
+						.icon-text-block__icon
+							img(src="i/basket.svg" alt="basket-svg")
+						.icon-text-block__text
+							a(href='#') Корзина
+
+					.icon-text-block
+						.icon-text-block__icon
+							img(src="i/people.svg" alt="people-svg")
+						.icon-text-block__text
+							a(href='#') Личный кабинет
+
+				.header-main-mob
+					.header-main-mob__logo
+						img(src="i/logo.svg" alt="logo")
+
+					.connection-mob
+						.connection-mob__block-phone
+							.connection-mob__block-phone__icon
+								img(src="i/phone-mob.svg" alt="phone-svg")
+							.connection-mob__block-phone__text +7 423 202 55 02
+							.connection-mob__whatsapp
+								img(src="i/whatsapp.svg" alt="whatsapp-svg")
+						a.order-a-call Заказать звонок
+
+					.search-mob
+						img(src="i/search.svg" alt="search-svg")
+	.header-bottom
+		.section_in
+			.main-menu
+				a.main-menu__catalogs(href="#") Каталоги
+				ul.main-menu__list
+					li.main-menu__item
+						a.main-menu__link(href="#") Запчасти
+					li.main-menu__item
+						a.main-menu__link(href="#") Агрегаты
+					li.main-menu__item
+						a.main-menu__link(href="#") Ремонт
+					li.main-menu__item
+						a.main-menu__link(href="#") Спецтехника
+					li.main-menu__item
+						a.main-menu__link(href="#") Экспресс-доставка
+					li.main-menu__item
+						a.main-menu__link(href="#") О компании
+					li.main-menu__item
+						a.main-menu__link(href="#") Контакты
+				.main-menu__search
+					img(src="i/search-menu.svg" alt="search")
+			.main-menu-mob
+				.main-menu-mob__icon-text-block
+					.main-menu-mob__icon-text-block__icon
+						img(src="i/flag.svg")
+					.main-menu-mob__icon-text-block__text Магадан
+
+				.main-menu-mob__icon-text-block
+					.main-menu-mob__icon-text-block__icon
+						img(src="i/basket.svg")
+					.main-menu-mob__icon-text-block__text
+						.bracket (
+						.count 10
+						.bracket )
+
+				.main-menu-mob__icon-text-block
+					.main-menu-mob__icon-text-block__icon
+						img(src="i/people.svg")
+					.main-menu-mob__icon-text-block__text Войти
+
+				.main-menu-mob__icon-text-block
+					.main-menu-mob__icon-text-block__icon
+						img(src="i/burger-menu.svg")
+
+
+
+.main-menu__search__modal
+	.section_in
+		.container
+			.search__wrapper
+				.input-block
+					.input-block__block
+						input.input-block__block__input(type="text" placeholder="Введите название")
+						img.input-block__block__img(src='i/search-menu.svg')
+			.search__content
+

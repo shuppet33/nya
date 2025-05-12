@@ -8,3 +8,142 @@
 		min-height: 100%;
 	}
 }
+
+// footer start
+
+.footer {
+	position: relative;
+	background-color: $darkgrey;
+	padding: 11.5rem 0;
+	margin-top: 13rem;
+
+	&-wrapper {
+		display: flex;
+		justify-content: center;
+		&__block {
+			gap: 15rem;
+			position: relative;
+			z-index: 10;
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			@include bp(1024px) {
+				flex-wrap: wrap;
+				gap: 6rem;
+			}
+		}
+
+		.colum {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+			color: $white;
+			font-family: $font_5;
+			font-size: 1.6rem;
+
+			max-width: 35rem;
+
+			a {
+				color: $white;
+
+				&:active {
+					color: $yellow;
+					font-family: $font_1;
+				}
+			}
+		}
+
+		.logo {
+			max-width: 14rem;
+			display: block;
+		}
+	}
+
+	&-main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		gap: 5rem;
+		&__contact {
+			.icon-text-block {
+				justify-content: flex-end;
+				&__icon {
+					width: 1.6rem;
+				}
+			}
+			.order-a-call {
+				a {
+					color: $yellow;
+				}
+				font-family: $font_3;
+				text-decoration: underline;
+				font-size: 1.4rem;
+				text-align: end;
+			}
+			.street {
+				align-items: flex-start;
+
+				&__icon {
+					margin-top: 0.5rem;
+				}
+				.icon-text-block__text {
+					font-size: 1.6rem;
+					font-family: $font_3;
+				}
+			}
+			.mail {
+				&__text {
+					font-size: 1.6rem;
+				}
+			}
+		}
+		&__block {
+			gap: 15rem;
+			@include flex-space;
+
+			@include bp(1024px) {
+				gap: 6rem;
+			}
+		}
+	}
+
+
+	&-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url("/i/footer-overlay.png") no-repeat center;
+		background-size: cover;
+		filter: grayscale(100%) brightness(0.9);
+	}
+
+
+	&-rights {
+		font-size: 1.6rem;
+		font-family: $font_5;
+		color: $white;
+		line-height: 2.5rem;
+	}
+
+	.icon-text-block {
+
+		&__whatsapp {
+			width: 2rem;
+			height: 2rem;
+		}
+		@include bp(1024px) {
+			justify-content: flex-start;
+		}
+	}
+
+	.order-a-call {
+		@include bp(1024px) {
+			text-align: start;
+		}
+	}
+}
+
+// footer end

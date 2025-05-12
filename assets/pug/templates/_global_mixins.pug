@@ -198,3 +198,76 @@ mixin picture(data)
 				source(srcset=`${data.img}.${imgType}${is2x ? `, ${data.img}@2x.${imgType} 2x` : ''}` type=`image/${imgType}`)
 		img(class= customClass src=`${data.img}.${type}` alt="")
 
+
+// product-card-1
+mixin product-card(imgSrc, logoSrc, inStock, title, manufacturer, price, manufacturerLink="#")
+	.item
+		.item__logo
+			img(src=logoSrc alt="Логотип производителя")
+
+		.item__img
+			img(src=imgSrc alt=title)
+
+		.item__info
+			.item__info__in-stok
+				.item__info__in-stok__chek-mark
+					img(src="i/check.svg" alt="В наличии")
+				p= inStock
+
+			h3.item__info__title= title
+
+			.item__info__manufacturer
+				p Производитель:#{' '}
+					a(href=manufacturerLink)= manufacturer
+
+			.item__info__price= price
+
+			.item__info__button-block
+				button(type="button") Заказать
+
+
+// product-card-2
+mixin product-card__mini(imgSrc, logoSrc, inStock, title, manufacturer, price, manufacturerLink="#")
+	.item
+		.item__logo
+			img(src=logoSrc alt="Логотип производителя")
+
+		.item__img
+			img(src=imgSrc alt=title)
+
+		.item__info
+			.item__info__in-stok
+				.item__info__in-stok__chek-mark
+					img(src="i/check.svg" alt="В наличии")
+				p= inStock
+
+			h3.item__info__title= title
+
+			.item__info__manufacturer
+				p Производитель:#{' '}
+					a(href=manufacturerLink)= manufacturer
+
+			.item__info__price= price
+
+			.item__info__button-block
+				button(type="button") Заказать
+
+
+mixin repeatLinks(tag, items)
+	each item, index in items
+		#{tag}(href='#')= item
+		if index < items.length - 1
+			| ,#{' '}
+
+
+mixin catalogAccordion(data, level=0)
+	.catalog__item(class=`level-${level}`)
+		.catalog-header
+			.catalog-header__title= data.title
+			if data.children && data.children.length
+				.catalog-header__img
+					img(src='i/arrow-filter.svg')
+		if data.children && data.children.length
+			.catalog-content
+				each child in data.children
+					+catalogAccordion(child, level + 1)

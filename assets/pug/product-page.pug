@@ -1,0 +1,129 @@
+extends _layout
+
+block vars
+	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'PRODUCT CARD'}
+block content_block
+
+	section.product
+		.section_in
+			.product__wrapper
+				.product__sliders
+					.product__slider.swiper
+						.swiper-wrapper
+							.swiper-slide
+								.product__slide
+										.product__slide__content
+											img(src='i/card-img__1.png')
+							.swiper-slide
+								.product__slide
+									.product__slide__content
+										img(src='i/card-img__1.png')
+							.swiper-slide
+								.product__slide
+									.product__slide__content
+										img(src='i/card-img__1.png')
+					.product__slider__mini.swiper
+						.swiper-wrapper
+							.swiper-slide
+								.product__slide__mini
+									.product__slide__mini__content
+										img(src='i/card-img__1.png')
+
+							.swiper-slide
+								.product__slide__mini
+									.product__slide__mini__content
+										img(src='i/card-img__1.png')
+
+							.swiper-slide
+								.product__slide__mini
+									.product__slide__mini__content
+										img(src='i/card-img__1.png')
+
+
+				.product__info
+					h2 Глушитель ЕК-12 312-04-03.50.600 (312040300 99)
+					.product__info__in-stok
+						.product__info__in-stok__chek-mark
+							img(src="i/check.svg")
+						p в наличии
+					.product__info__description
+						.product__info__description__manufacturer
+							p Производитель:#{' '}
+								a(href='#') Shanghai
+						.product__info__description__catalog-number
+							p Номер по каталогу:#{' '}
+								span 1262598455
+						.product__info__description__application
+							p Применяемость:#{' '}
+								.font-color-yellow
+									+repeatLinks('a', ['Shanghai', 'Shanghai', 'Shanghai', 'Shanghai'])
+						span Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+					.product__info__price 573 100р
+					.product__info__button-group
+						.button в корзину
+	section.similar
+		.section_in
+			.card__title-block
+				h2  Похожие товары
+			.card__slider.swiper
+				.swiper-wrapper
+					-for (let i = 0; i < 4; i++)
+						.swiper-slide
+							.card__slide
+									.card__slide__content
+										.card__item-block
+											+product-card(
+												"i/card-img__1.png",
+												"i/card-logo.svg",
+												"в наличии",
+												"Двигатель Shanghai (Pengpu) SC10E380Q5",
+												"Shanghai",
+												"573 100р"
+											)
+				//.card__custom-container
+				//	.card__slider-button-prev
+				//		.img
+				//			img(src="i/slider-arrow__left.svg")
+				//	.card__slider-pagination
+				//	.card__slider-button-next
+				//		.img
+				//			img(src="i/slider-arrow__right.svg")
+
+
+			.card__title-block__mob
+				h2  Похожие товары
+
+			.card__item-block__mob.swiper
+				.swiper-wrapper
+					-for (let i = 0; i < 4; i++)
+						.swiper-slide
+							.card__slide
+								.card__slide__content
+									+product-card(
+										"i/card-img__1.png",
+										"i/card-logo.svg",
+										"в наличии",
+										"Двигатель Shanghai (Pengpu) SC10E380Q5",
+										"Shanghai",
+										"573 100р"
+									)
+				.card__custom-container__mob
+					.card__slider-button-prev__mob
+						.img
+							img(src="i/slider-arrow__left.svg")
+					.card__slider-pagination__mob
+					.card__slider-button-next__mob
+						.img
+							img(src="i/slider-arrow__right.svg")
+
+
+
+
+
+
+
+
+
+
+
+

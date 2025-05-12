@@ -1,0 +1,134 @@
+extends _layout
+
+block vars
+	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'CATALOG'}
+block content_block
+
+	section.search
+		.section_in
+			.search__wrapper
+				.input-block
+					.input-block__label Поиск по номеру
+					.input-block__block
+						input.input-block__block__input(type="text" placeholder="Введите номер")
+						img.input-block__block__img(src='i/search-menu.svg')
+				.input-block
+					.input-block__label Поиск по названию
+					.input-block__block
+						input.input-block__block__input(type="text" placeholder="Введите название")
+						img.input-block__block__img(src='i/search-menu.svg')
+
+	section.catalog
+		.section_in
+			.catalog__wrapper
+				.catalog__filters
+					+catalogAccordion({
+						title: 'CASE',
+						children: [
+							{
+								title: 'Двигатели'
+							},
+							{
+								title: 'Тяжелое оборудование'
+							},
+							{
+								title: 'Легкое оборудование',
+								children: [
+									{
+										title: 'Комп. гусеничные погрузчики'
+									},
+									{
+										title: 'Комп. колесные погрузчики'
+									},
+									{
+										title: 'Вилочные погрузчики',
+										children: [
+											{
+											title: 'C SERIES'
+											}
+										]
+									},
+									{
+										title: 'Дизельные'
+									}
+								]
+							},
+							{
+								title: 'КПП'
+							}
+						]
+					})
+					+catalogAccordion({
+						title: 'CASE',
+						children: [
+							{
+								title: 'Двигатели'
+							},
+							{
+								title: 'Тяжелое оборудование'
+							},
+							{
+								title: 'Легкое оборудование',
+								children: [
+									{
+										title: 'Комп. гусеничные погрузчики'
+									},
+									{
+										title: 'Комп. колесные погрузчики'
+									},
+									{
+										title: 'Вилочные погрузчики',
+										children: [
+											{
+												title: 'C SERIES'
+											}
+										]
+									},
+									{
+										title: 'Дизельные'
+									}
+								]
+							},
+							{
+								title: 'КПП'
+							}
+						]
+					})
+				.catalog__cards
+					.cards__slider.swiper
+						.swiper-wrapper
+							.swiper-slide
+								.card__slide
+									.card__slide__content
+										-for (let i = 0; i < 9; i++)
+											.card__item-block
+												+product-card(
+													"i/card-img__1.png",
+													"i/card-logo-2.svg",
+													"в наличии",
+													"Двигатель Shanghai (Pengpu) SC10E380Q5",
+													"Shanghai",
+													"573 100р"
+												)
+							.swiper-slide
+								.card__slide
+									.card__slide__content
+										-for (let i = 0; i < 9; i++)
+											.card__item-block
+												+product-card(
+													"i/card-img__1.png",
+													"i/card-logo-2.svg",
+													"в наличии",
+													"Двигатель Shanghai (Pengpu) SC10E380Q5",
+													"Shanghai",
+													"573 100р"
+												)
+					.catalog__cards__custom-container
+						.catalog__cards__slider-button-prev
+							.img
+								img(src="i/slider-arrow__left.svg")
+						.catalog__cards__slider-pagination
+						.catalog__cards__slider-button-next
+							.img
+								img(src="i/slider-arrow__right.svg")
+

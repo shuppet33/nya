@@ -1,0 +1,1031 @@
+body {
+	background: $lightgrey;
+	position: relative;
+}
+
+.section_in {
+	max-width: 120rem;
+	margin: 0 auto;
+
+	@include bp(1024px) {
+		margin: 0 4rem;
+	}
+};
+
+.invalid {
+	outline: 3px solid #d33c3c !important;
+}
+
+
+
+// hero start
+
+.hero {
+	padding: 15.7rem 0 7.5rem 0;
+	background-image: url("/i/bg-hero.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: $fontdarkgrey;
+	position: relative;
+
+	@include bp(1024px) {
+		padding: 5rem 0 7.5rem 0;
+		background-image: url("/i/bg.png");
+		background-size: cover;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		@include bp(1024px) {
+			display: none;
+		}
+	}
+
+	&__bg__mob {
+		position: absolute;
+		bottom: 0;
+		display: none;
+		@include bp(400px) {
+			display: block;
+		}
+	}
+
+	.swiper {
+		overflow: visible;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__slider {
+		@include bp(1024px) {
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+		}
+	}
+
+	&__slide {
+
+		&__content {
+			display: flex;
+			position: relative;
+			min-height: 58.2rem;
+
+			@include bp(1024px) {
+				justify-content: center;
+			}
+
+			@include bp(790px) {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+		&__info {
+			@include flex-col;
+			max-width: 77rem;
+
+			@include bp(1024px) {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			h2 {
+				max-width: 66rem;
+				margin-bottom: 4rem;
+				font-size: 7.5rem;
+				line-height: 8.5rem;
+				text-transform: uppercase;
+				font-family: $font_6;
+
+				@include bp(1024px) {
+					font-size: 4rem;
+				}
+
+				@include bp(790px) {
+					text-align: center;
+					font-size: 4rem;
+					line-height: 5rem;
+					margin-bottom: 1rem;
+				}
+			}
+
+
+			.description {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 5rem;
+
+				@include bp(1024px) {
+					gap: 3rem;
+					text-align: center;
+				}
+
+				@include bp(790px) {
+					@include flex-center;
+					flex-direction: column;
+					width: 100%;
+					gap: 3rem;
+				}
+
+				&__item {
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: flex-start;
+					gap: 1rem;
+
+					@include bp(1024px) {
+						@include flex-center;
+					}
+
+					&__img {
+						height: 6.4rem;
+
+						@include bp(1024px) {
+							height: 4rem;
+						}
+					}
+
+					&__title {
+						font-size: 2.5rem;
+
+						@include bp(1024px) {
+							font-size: 2rem;
+						}
+					}
+
+					&__text {
+						font-family: $font_3;
+						width: 24rem;
+						font-size: 2rem;
+						line-height: 3.5rem;
+
+						@include bp(790px) {
+							max-width: 50rem;
+							width: 100%;
+							text-align: center;
+							font-size: 1.6rem;
+							line-height: 2.5rem;
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	&__slide__img {
+		height: 63rem;
+		width: 72rem;
+		top: -90px;
+		right: -195px;
+		position: absolute;
+		transition: transform 0.5s ease-out;
+
+		@include bp(1024px) {
+			display: none;
+		}
+
+		@include bp(400px) {
+			display: block;
+			position: relative;
+			top: 0;
+			right: 0;
+			height: 39.7rem;
+			width: 32.4rem;
+		}
+
+		&__img {
+			position: absolute;
+			z-index: 10;
+		}
+		&__shadow {
+			position: absolute;
+			left: -32px;
+			z-index: 9;
+		}
+	}
+	&__custom-container {
+		@include flex-space;
+		width: 30rem;
+		position: absolute;
+		right: 36rem;
+		bottom: 0;
+
+		@include bp(1024px) {
+			margin-top: 3rem;
+			position: static;
+			right: auto;
+			bottom: 0;
+		}
+
+		@include bp(400px) {
+			margin-top: 0;
+			position: absolute;
+			right: auto;
+			bottom: 0;
+		}
+
+		.hero__slider-button-prev{
+			@include flex-center;
+			background: $yellow;
+			border-radius: 12rem;
+			height: 5rem;
+			width: 5rem;
+			z-index: 10;
+			flex-shrink: 0;
+			cursor: pointer;
+		}
+		.hero__slider-pagination {
+			@include flex-center;
+			gap: 2.7rem;
+			&__bullet {
+				width: 1.8rem;
+				height: 1.8rem;
+				border-radius: 100%;
+				background: $grey;
+				&-active {
+					background: $yellow;
+				}
+			}
+		}
+		.hero__slider-button-next {
+			@include flex-center;
+			background: $yellow;
+			border-radius: 12rem;
+			height: 5rem;
+			width: 5rem;
+			z-index: 10;
+			flex-shrink: 0;
+			cursor: pointer;
+		}
+	}
+}
+
+
+// hero end
+
+
+
+// carousel start
+
+.carousel {
+	background-color: $white;
+
+	&__slide {
+		&__content {
+			height: 12rem;
+			width: 12rem;
+			@include flex-center;
+		}
+	}
+}
+
+// carousel end
+
+// card start
+
+.card{
+	padding: 10rem 0;
+
+	&__title-block {
+		margin-bottom: 3.5rem;
+		@include flex-space;
+		color: $fontdarkgrey;
+
+		@include bp(1024px) {
+			display: none;
+		}
+		h2{
+			font-family: $font_6;
+			font-size: 5.5rem;
+		}
+		&__button {
+			@include flex-center;
+			padding: 0 3rem;
+			border-radius: 12rem;
+			background: $yellow;
+			gap: 1.5rem;
+			a {
+				padding: 1.5rem 0;
+				text-transform: uppercase;
+				font-size: 1.6rem;
+			}
+		}
+	}
+	&__item-block {
+		@include flex-space;
+		gap: 3.6rem;
+		flex-wrap: wrap;
+
+		@include bp(1024px) {
+			display: none;
+		}
+
+		.item {
+
+			padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+			background: $white;
+
+			border-radius: 1rem;
+			position: relative;
+
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+
+			&__logo {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				max-width: 17.5rem;
+			}
+
+			&__img {
+				max-width: 34rem;
+				img {
+					border-radius: 1rem;
+				}
+			}
+
+			&__info {
+				max-width: 34rem;
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+
+				&__in-stok {
+					@include flex-start;
+					gap: 1rem;
+					&__chek-mark {
+						max-width: 1.7rem;
+					}
+					p {
+						font-size: 1.8rem;
+						font-family: $font_3;
+						color: $fontlightgrey;
+						line-height: 3.5rem;
+					}
+				}
+				&__title {
+					font-size: 2rem;
+					font-family: $font_3;
+					line-height: 3rem;
+				}
+				&__manufacturer {
+					p {
+						line-height: 3.5rem;
+						font-size: 1.8rem;
+						font-family: $font_3;
+						color: $fontlightgrey;
+						a {
+							font-family: $font_2;
+							color: $yellow;
+						}
+					}
+
+				}
+				&__price {
+					font-family: $font_1;
+					color: $fontdarkgrey;
+					font-size: 2.5rem;
+				}
+				&__button-block {
+					@include flex-space;
+					margin-top: 1.5rem;
+
+					button {
+						padding: 1.9rem 2.8rem;
+						background: $yellow;
+						border-radius: 12rem;
+						font-family: $font_1;
+						font-size: 1.8rem;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+	}
+
+
+	&__title-block__mob {
+		margin-bottom: 1.5rem;
+		color: $fontdarkgrey;
+
+		display: none;
+
+		@include bp(1024px) {
+			display: block;
+		}
+
+		text-align: center;
+
+		h2{
+			font-family: $font_6;
+			font-size: 3.5rem;
+		}
+	}
+
+	&__item-block__mob {
+
+		width: 100%;
+		height: 100%;
+		.swiper-slide {
+			@include flex-center;
+		}
+
+		display: none;
+
+		@include bp(1024px) {
+			display: block;
+		};
+
+
+
+		.item {
+			max-height: 60rem;
+			max-width: 29rem;
+
+			@include bp(680px) {
+				max-width: 33rem;
+			}
+
+			padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+			background: $white;
+
+			border-radius: 1rem;
+			position: relative;
+
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+
+			&__logo {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				max-width: 17.5rem;
+			}
+
+			&__info {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+
+				&__in-stok {
+					@include flex-start;
+					gap: 1rem;
+					&__chek-mark {
+						max-width: 1.7rem;
+					}
+					p {
+						font-size: 1.8rem;
+						font-family: $font_3;
+						color: $fontlightgrey;
+						line-height: 3.5rem;
+					}
+				}
+				&__title {
+					font-size: 2rem;
+					font-family: $font_3;
+					line-height: 3rem;
+				}
+				&__manufacturer {
+					p {
+						line-height: 3.5rem;
+						font-size: 1.8rem;
+						font-family: $font_3;
+						color: $fontlightgrey;
+						a {
+							font-family: $font_2;
+							color: $yellow;
+						}
+					}
+
+				}
+				&__price {
+					font-family: $font_1;
+					color: $fontdarkgrey;
+					font-size: 2.5rem;
+				}
+				&__button-block {
+					@include flex-space;
+					margin-top: 1.5rem;
+
+					button {
+						padding: 1.9rem 2.8rem;
+						background: $yellow;
+						border-radius: 12rem;
+						font-family: $font_1;
+						font-size: 1.8rem;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+
+
+		.card__custom-container__mob {
+			@include flex-space;
+			margin-top: 4rem;
+			.card__slider-button-prev__mob{
+				@include flex-center;
+				background: $yellow;
+				border-radius: 12rem;
+				height: 3rem;
+				width: 3rem;
+				z-index: 10;
+			}
+			.card__slider-pagination__mob {
+				@include flex-center;
+				gap: 2.5rem;
+				&__bullet {
+					width: 1.2rem;
+					height: 1.2rem;
+					border-radius: 100%;
+					background: $grey;
+					&-active {
+						background: $yellow;
+					}
+				}
+			}
+			.card__slider-button-next__mob {
+				@include flex-center;
+				background: $yellow;
+				border-radius: 12rem;
+				height: 3rem;
+				width: 3rem;
+				z-index: 10;
+			}
+		}
+	}
+
+	&__button-block {
+		display: none;
+
+		@include bp(1024px) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+			margin-top: 4rem;
+		}
+
+		&__button__mob {
+			max-width: 21rem;
+			@include flex-center;
+			padding: 0 3rem;
+			border-radius: 12rem;
+			background: $yellow;
+			gap: 1.5rem;
+			a {
+				padding: 1.5rem 0;
+				text-transform: uppercase;
+				font-size: 1.6rem;
+			}
+		}
+	}
+
+}
+
+
+// card end
+
+
+// about start
+
+.about {
+	position: relative;
+	background-color: $darkgrey;
+	border-radius: 0 0 30rem 0;
+	color: $white;
+	padding: 10rem 0;
+	overflow: hidden;
+
+	@include bp(1024px) {
+		border-radius: 0 0 15rem 0;
+	}
+
+	&__img-1 {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		@include bp(1024px) {
+			display: none;
+		}
+	}
+
+	&__img-2 {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		display: none;
+		@include bp(1024px) {
+			display: block;
+		}
+	}
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url("/i/about-background.jpg") no-repeat center;
+		background-size: cover;
+		filter: grayscale(100%) brightness(0.9);
+		opacity: 0.1;
+	}
+
+	.block {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+
+		position: relative;
+		z-index: 10;
+	}
+
+	&__description-block {
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: 13rem;
+		@include bp(1024px) {
+			justify-content: center;
+			margin-bottom: 3rem;
+		}
+		&__title{
+			font-size: 5.5rem;
+			font-family: $font_6;
+
+			@include bp(1024px) {
+				font-size: 3.5rem;
+			}
+		}
+		&__description{
+			font-family: $font_3;
+			font-size: 2rem;
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
+			max-width: 64.5rem;
+			line-height: 3.5rem;
+
+			@include bp(1024px) {
+				font-size: 1.8rem;
+				max-width: 100%;
+			}
+		}
+	}
+	&__info-blocks {
+		position: relative;
+		z-index: 10;
+		@include flex-space;
+		flex-wrap: wrap;
+
+
+		@include bp(1024px) {
+			gap: 2rem;
+		}
+
+		&__block {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			max-width: 33.5rem;
+			@include bp(1024px) {
+				max-width: 31rem;
+			}
+			@include bp(720px) {
+				max-width: 100%;
+			}
+
+			&__img{
+				max-width: 7.2rem;
+
+				@include bp(1024px) {
+					max-width: 6.2rem;
+				}
+			}
+			&__title{
+				font-size: 2.5rem;
+				font-family: $font_2;
+				line-height: 3.5rem;
+
+				@include bp(1024px) {
+					font-size: 2rem;
+				}
+			}
+			&__description{
+				font-size: 2rem;
+				font-family: $font_5;
+				line-height: 3.5rem;
+
+				@include bp(1024px) {
+					font-size: 1.8rem;
+				}
+			}
+		}
+	}
+}
+
+// about end
+
+
+// form start
+
+.form {
+	position: relative;
+	background-color: $darkgrey;
+	border-radius: 0 0 0 30rem;
+	color: $white;
+	padding: 11rem 0 21rem 0;
+	overflow: hidden;
+
+	transition: outline ease 3s;
+
+	@include bp(1024px) {
+		border-radius: 0 0 0 15rem;
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 4rem;
+		position: relative;
+		z-index: 10;
+		&__text {
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
+		}
+	}
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url("/i/form-overlay.jpg") no-repeat center;
+		background-size: cover;
+		filter: grayscale(100%) brightness(0.9);
+		opacity: 0.1;
+	}
+
+	&__title {
+		font-size: 5.5rem;
+		font-family: $font_6;
+		line-height: 3.5rem;
+
+		@include bp(1024px) {
+			font-size: 3.5rem;
+		}
+	}
+
+	&__description {
+		font-family: $font_3;
+		font-size: 2rem;
+		line-height: 3.5rem;
+		max-width: 64.5rem;
+
+		@include bp(1024px) {
+			font-size: 1.8rem;
+		}
+	}
+
+	&__input {
+		font-size: 1.8rem;
+		font-family: $font_5;
+		padding: 2.7rem 5rem;
+		border-radius: 12rem;
+		background-color: $white;
+		width: 100%;
+
+		transition: outline 0.5s ease;
+
+		outline: 2px solid $white;
+
+		@include bp(1024px) {
+			padding: 2rem 3.5rem;
+		}
+
+
+		&::placeholder {
+			color: $fontdarkgrey;
+			font-size: 1.8rem;
+			font-family: $font_5;
+		}
+	}
+
+	.block {
+		@include flex-space;
+		gap: 4rem;
+		max-width: 87rem;
+
+		@include bp(1024px) {
+			flex-direction: column;
+		}
+	}
+
+	&__group {
+		display: flex;
+		flex-direction: column;
+		gap: 4rem;
+
+		&__checkbox {
+			@include flex-space;
+			gap: 4rem;
+			max-width: 87rem;
+
+			@include bp(1024px) {
+				flex-direction: column-reverse;
+			}
+
+			&__input {
+				position: absolute;
+				opacity: 0;
+				width: 0;
+				height: 0;
+				&:checked + .form__group__checkbox__label .form__group__checkbox__icon {
+					background: $yellow;
+					transition: outline 0.5s ease;
+				}
+			}
+			&__label {
+				@include flex-space;
+				width: 100%;
+				cursor: pointer;
+				max-width: 41.5rem;
+
+				@include bp(1024px) {
+					max-width: 100%;
+					@include flex-center;
+					gap: 1rem;
+				}
+			}
+			&__icon {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				width: 3.2rem;
+				height: 3.2rem;
+				border-radius: 12rem;
+				background: $white;
+				flex-shrink: 0;
+
+				margin-right: 1rem;
+
+				transition: outline 0.5s ease;
+
+			}
+			&__text {
+				font-size: 1.8rem;
+				font-family: $font_3;
+				line-height: 2.5rem;
+
+				@include bp(1024px) {
+					font-size: 1.4rem;
+					max-width: 100%;
+				}
+			}
+			&__link {
+				color: $yellow;
+				text-decoration: underline;
+				font-family: $font_2;
+			}
+		}
+	}
+
+	&__button {
+		font-family: $font_2;
+		font-size: 2rem;
+		background-color: $yellow;
+		text-transform: uppercase;
+		padding: 3.4rem 4rem;
+
+		border-radius: 12rem;
+
+		@include bp(1024px) {
+			display: none;
+		}
+	}
+	&__button__mob {
+		display: none;
+		font-family: $font_2;
+		font-size: 2rem;
+		background-color: $yellow;
+		text-transform: uppercase;
+		padding: 3.4rem 4rem;
+
+		border-radius: 12rem;
+
+		@include bp(1024px) {
+			display: block;
+			padding: 2.7rem 5.8rem;
+		}
+	}
+}
+
+// form end
+
+// special start
+
+.item-special {
+	padding: 1rem 3rem 6rem 3rem !important;
+
+	&__logo {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		max-width: 11.5rem;
+	}
+
+	&__img {
+		max-width: 31rem;
+		img {
+			border-radius: 1rem;
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&__title {
+			font-family: $font_2;
+			font-size: 2.5rem;
+			margin-bottom: 4rem;
+		}
+		&__button-block {
+			button {
+				padding: 1.9rem 2.8rem;
+				background: rgb(253, 192, 67);
+				border-radius: 12rem;
+				font-family: "Roboto-Bold", sans-serif;
+				font-size: 1.8rem;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.card__item-block__mob {
+	.item-special {
+		padding: 1rem 2.8rem 4.7rem 2.8rem !important;
+
+		&__logo {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			max-width: 8rem;
+		}
+
+		&__img {
+			max-width: 26rem;
+			img {
+				border-radius: 1rem;
+			}
+		}
+
+		&__info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			&__title {
+				font-family: $font_2;
+				font-size: 2rem;
+				margin-bottom: 2.5rem;
+			}
+			&__button-block {
+				button {
+					padding: 1.5rem 2.5rem;
+					background: rgb(253, 192, 67);
+					border-radius: 12rem;
+					font-family: "Roboto-Bold", sans-serif;
+					font-size: 1.6rem;
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+}
+
+// special end
+
+
+
+
+
+
