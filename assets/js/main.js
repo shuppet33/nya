@@ -447,7 +447,7 @@ function initCatalogAccordion(accordionClass) {
 			header.addEventListener('click', function (e) {
 				e.stopPropagation();
 
-				const item = this.closest('.catalog__item');
+				const item = this.closest('.catalog__item'); // ближайший родительский элем
 				const content = item.querySelector('.catalog-content');
 				const arrow = this.querySelector('img');
 
@@ -488,8 +488,8 @@ initCatalogAccordion('catalog');
 function openModal(buttonSelector, modalSelector) {
 	const button = document.querySelector(buttonSelector);
 	const modal = document.querySelector(modalSelector);
-	const containerModal = modal.querySelector('.container');
-	const inputArray = containerModal.getElementsByTagName('input')
+	const containerModal = modal.querySelector('.section_in');
+	const modalInput =  modal.querySelector('input')
 
 	if (!button || !modal) return;
 
@@ -511,18 +511,14 @@ function openModal(buttonSelector, modalSelector) {
 
 	const outsideClickHandler = (e) => {
 		if (!containerModal.contains(e.target)) {
-			for (input of inputArray) {
-				input.value = ''
-			}
+			modalInput.value = ''
 			closeModalHandler();
 		}
 	};
 
 	const escapeHandler = (e) => {
 		if (e.key === 'Escape') {
-			for (input of inputArray) {
-				input.value = ''
-			}
+			modalInput.value = ''
 			closeModalHandler();
 		} else if (e.key === 'Enter') {
 			alert('Получаем результат поиска');

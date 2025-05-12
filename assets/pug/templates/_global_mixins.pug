@@ -200,13 +200,14 @@ mixin picture(data)
 
 
 // product-card-1
-mixin product-card(imgSrc, logoSrc, inStock, title, manufacturer, price, manufacturerLink="#")
+mixin product-card(imgSrc, linkProductPage, logoSrc, inStock, title, manufacturer, price, manufacturerLink="#")
 	.item
 		.item__logo
 			img(src=logoSrc alt="Логотип производителя")
 
 		.item__img
-			img(src=imgSrc alt=title)
+			a(href=linkProductPage)
+				img(src=imgSrc alt=title)
 
 		.item__info
 			.item__info__in-stok
@@ -214,7 +215,8 @@ mixin product-card(imgSrc, logoSrc, inStock, title, manufacturer, price, manufac
 					img(src="i/check.svg" alt="В наличии")
 				p= inStock
 
-			h3.item__info__title= title
+			h3.item__info__title
+				a(href=linkProductPage)=title
 
 			.item__info__manufacturer
 				p Производитель:#{' '}
@@ -227,13 +229,14 @@ mixin product-card(imgSrc, logoSrc, inStock, title, manufacturer, price, manufac
 
 
 // product-card-2
-mixin product-card__mini(imgSrc, logoSrc, inStock, title, manufacturer, price, manufacturerLink="#")
+mixin product-card__mini(imgSrc, linkProductPage, logoSrc, inStock, title, manufacturer, price, manufacturerLink="#")
 	.item
 		.item__logo
 			img(src=logoSrc alt="Логотип производителя")
 
 		.item__img
-			img(src=imgSrc alt=title)
+			a(href=linkProductPage)
+				img(src=imgSrc alt=title)
 
 		.item__info
 			.item__info__in-stok
@@ -241,7 +244,8 @@ mixin product-card__mini(imgSrc, logoSrc, inStock, title, manufacturer, price, m
 					img(src="i/check.svg" alt="В наличии")
 				p= inStock
 
-			h3.item__info__title= title
+			h3.item__info__title
+				a(href=linkProductPage)=title
 
 			.item__info__manufacturer
 				p Производитель:#{' '}
