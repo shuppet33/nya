@@ -90,7 +90,7 @@ header.header
 					.main-menu-mob__icon-text-block__text Войти
 
 				.main-menu-mob__icon-text-block
-					.main-menu-mob__icon-text-block__icon
+					.main-menu-mob__icon-text-block__icon.burger-menu__button
 						img(src="i/burger-menu.svg")
 
 
@@ -103,3 +103,36 @@ header.header
 					input.input-block__block__input(type="text" placeholder="Введите название")
 					img.input-block__block__img(src='i/search-menu.svg')
 			.search__content
+.burger-menu
+	.section_in
+		.close-btn
+			img(src='i/close.svg')
+		.burger-menu__wrapper
+			ul.burger-menu__list
+				li.burger-menu__list__item.logo
+					a.burger-menu__list__link(href="/")
+						img(src='i/logo.svg')
+				li.burger-menu__list__item
+					a.burger-menu__list__link(href="/catalog.html")
+						b Каталог
+				li.burger-menu__list__item
+					a.burger-menu__list__link(href="#") Запчасти
+				li.burger-menu__list__item
+					a.burger-menu__list__link(href="#") Агрегаты
+				li.burger-menu__list__item
+					a.burger-menu__list__link(href="#") Ремонт
+				li.burger-menu__list__item
+					a.burger-menu__list__link(href="#") Спецтехника
+				li.burger-menu__list__item
+					a.burger-menu__list__link(href="#") Экспресс-доставка
+				li.burger-menu__list__item
+					a.burger-menu__list__link(href="#") О компании
+				li.burger-menu__list__item
+					.tel
+						img(src='i/phone-mob.svg')
+						a(src='#') +7 423 202 55 02
+				li.burger-menu__list__item
+					.email
+						img(src='i/mail.svg')
+						a(src='#') spart_spart@yandex.ru
+

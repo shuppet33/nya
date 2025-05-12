@@ -485,28 +485,32 @@ function initCatalogAccordion(accordionClass) {
 
 initCatalogAccordion('catalog');
 
-function openModal(buttonSelector, modalSelector) {
+function openModal(buttonSelector, modalSelector, closeButton = null) {
 	const button = document.querySelector(buttonSelector);
 	const modal = document.querySelector(modalSelector);
 	const containerModal = modal.querySelector('.section_in');
 	const modalInput =  modal.querySelector('input')
-
+	const close = modal.querySelector(closeButton)
 	if (!button || !modal) return;
 
 
 	const openModalHandler = () => {
 		modal.style.display = 'block';
 		document.body.style.overflow = 'hidden'
+
 		document.addEventListener('keydown', escapeHandler);
 		document.addEventListener('click', outsideClickHandler);
+		close.addEventListener('click', closeModalHandler)
 	};
 
 
 	const closeModalHandler = () => {
 		modal.style.display = 'none';
 		document.body.style.overflow = 'auto'
+
 		document.removeEventListener('keydown', escapeHandler);
 		document.removeEventListener('click', outsideClickHandler);
+		close.removeEventListener('click', closeModalHandler);
 	};
 
 	const outsideClickHandler = (e) => {
@@ -523,6 +527,8 @@ function openModal(buttonSelector, modalSelector) {
 		} else if (e.key === 'Enter') {
 			alert('Получаем результат поиска');
 		}
+
+		i
 	};
 
 
@@ -541,3 +547,5 @@ function openModal(buttonSelector, modalSelector) {
 
 
 openModal('.main-menu__search', '.main-menu__search__modal');
+openModal('.search-mob', '.main-menu__search__modal');
+openModal('.burger-menu__button', '.burger-menu', '.close-btn');
