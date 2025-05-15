@@ -225,7 +225,6 @@ new Swiper('.hero__slider', {
 });
 
 const productSliderMini = new Swiper('.product__slider__mini', {
-	loop: true,
 	spaceBetween: 16,
 	slidesPerView: 3,
 	freeMode: true,

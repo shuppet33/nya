@@ -74,6 +74,12 @@
 	&__logo {
 		width: 7rem;
 	}
+
+	.search-mob {
+		&:active {
+			background-color: rgb(35, 35, 32);
+		}
+	}
 }
 
 
@@ -99,6 +105,13 @@
 		font-family: $font_1;
 		color: $white;
 		font-size: 1.4rem;
+		a {
+			color: $white;
+			transition: ease 0.1s;
+			&:active {
+				color: $yellow;
+			}
+		}
 	}
 }
 

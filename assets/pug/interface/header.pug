@@ -36,16 +36,18 @@ header.header
 
 				.header-main-mob
 					.header-main-mob__logo
-						img(src="i/logo.svg" alt="logo")
+						a(href='/')
+							img(src="i/logo.svg" alt="logo")
 
 					.connection-mob
 						.connection-mob__block-phone
 							.connection-mob__block-phone__icon
 								img(src="i/phone-mob.svg" alt="phone-svg")
-							.connection-mob__block-phone__text +7 423 202 55 02
+							.connection-mob__block-phone__text
+								a(href='#') +7 423 202 55 02
 							.connection-mob__whatsapp
 								img(src="i/whatsapp.svg" alt="whatsapp-svg")
-						a.order-a-call Заказать звонок
+						a(href='#').order-a-call Заказать звонок
 
 					.search-mob
 						img(src="i/search.svg" alt="search-svg")
